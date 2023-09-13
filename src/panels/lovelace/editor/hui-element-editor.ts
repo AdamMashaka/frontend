@@ -19,6 +19,7 @@ import type { HaCodeEditor } from "../../../components/ha-code-editor";
 import type {
   LovelaceCardConfig,
   LovelaceConfig,
+  LovelaceStrategyConfig,
 } from "../../../data/lovelace";
 import type { HomeAssistant } from "../../../types";
 import type { LovelaceRowConfig } from "../entity-rows/types";
@@ -38,7 +39,8 @@ export interface ConfigChangedEvent {
     | LovelaceCardConfig
     | LovelaceRowConfig
     | LovelaceHeaderFooterConfig
-    | LovelaceTileFeatureConfig;
+    | LovelaceTileFeatureConfig
+    | LovelaceStrategyConfig;
   error?: string;
   guiModeAvailable?: boolean;
 }

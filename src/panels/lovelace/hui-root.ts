@@ -19,12 +19,12 @@ import {
 import "@polymer/paper-tabs/paper-tab";
 import "@polymer/paper-tabs/paper-tabs";
 import {
-  css,
   CSSResultGroup,
-  html,
   LitElement,
   PropertyValues,
   TemplateResult,
+  css,
+  html,
 } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
@@ -68,6 +68,7 @@ import { documentationUrl } from "../../util/documentation-url";
 import { swapView } from "./editor/config-util";
 import { showEditLovelaceDialog } from "./editor/lovelace-editor/show-edit-lovelace-dialog";
 import { showEditViewDialog } from "./editor/view-editor/show-edit-view-dialog";
+import { showDashboardStrategyEditorDialog } from "./strategies/device-registry-detail/show-dialog-dashboard-strategy-editor";
 import type { Lovelace } from "./types";
 import "./views/hui-view";
 import type { HUIView } from "./views/hui-view";
@@ -803,6 +804,14 @@ class HUIRoot extends LitElement {
     if (this._yamlMode) {
       showAlertDialog(this, {
         text: this.hass!.localize("ui.panel.lovelace.editor.yaml_unsupported"),
+      });
+      return;
+    }
+    if (this.lovelace!.rawConfig?.strategy != null) {
+      showDashboardStrategyEditorDialog(this, {
+        lovelaceConfig: this.lovelace!.rawConfig,
+        saveConfig: this.lovelace!.saveConfig,
+        strategyConfig: this.lovelace!.rawConfig.strategy,
       });
       return;
     }
