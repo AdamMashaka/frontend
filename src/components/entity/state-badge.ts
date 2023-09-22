@@ -136,7 +136,7 @@ export class StateBadge extends LitElement {
         backgroundImage = `url(${imageUrl})`;
         this._showIcon = false;
         if (domain === "update") {
-          hostStyle.borderRadius = "0";
+          this.style.borderRadius = "0";
         }
         if (domain === "media_player") {
           hostStyle.borderRadius = "8%";
