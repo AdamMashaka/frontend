@@ -1,0 +1,15 @@
+    1:   #is the simple instruction where any person who have the accsess can get notification on what home is happen
+Mobile App Integration Configuration (For both Android and iOS):
+In your Home Assistant configuration.yaml file, enable the mobile app integration. This should look something like:
+        #simple example of code
+mobile_app:
+    2:#Device Tracking Configuration:
+Next, set up device tracking for your phone to track its location. Here's an example using the device_tracker component in your configuration.yaml:
+    #simple code
+  device_tracker:
+  - platform: mobile_app
+    consider_home: 180
+    track_new_devices: yes
+  3:
+  
+
